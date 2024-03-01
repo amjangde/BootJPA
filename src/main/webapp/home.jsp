@@ -8,11 +8,12 @@
 </head>
 <body>
 
-<form action="addAlien">
+<!-- <form action="addAlien">
  <input type="text" name="aId"><br>
  <input type="text" name="aName"><br>
+ <input type="text" name="aTech"><br>
  <input type="submit"><br>
-</form>
+</form> -->
 
 <form action="getAlien">
  <input type="text" name="aId"><br>

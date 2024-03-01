@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +35,14 @@ public class AlienController {
 	{
 		ModelAndView mv = new ModelAndView("showAlien.jsp");
 		Alien alien = repo.findById(aId).orElse(new Alien());
+		
+		//Find by custom method or query
+		System.out.println(repo.findByaTech("Java"));
+		System.out.println(repo.findByaIdGreaterThan(100));
+		System.out.println(repo.findByaTechSorted("Java"));
+		
+		List<Alien> alien2 = repo.findByaTech("Java");
+		
 		mv.addObject(alien);
 		return mv;
 	}
