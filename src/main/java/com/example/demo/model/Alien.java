@@ -1,5 +1,9 @@
 package com.example.demo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Alien {
 	@Override
 	public String toString() {
@@ -17,6 +21,7 @@ public class Alien {
 	public void setaName(String aName) {
 		this.aName = aName;
 	}
+	@Id
 	private int aId;
 	private String aName;
 }
