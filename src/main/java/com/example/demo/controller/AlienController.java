@@ -6,15 +6,20 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.demo.dao.AlienRepo;
 import com.example.demo.model.Alien;
 
-@Controller
+//@Controller
+
+// To config a controller specific to REST services
+@RestController
 public class AlienController {
 	
 	@Autowired
@@ -26,12 +31,10 @@ public class AlienController {
 		return "home.jsp";
 	}
 	
-	@RequestMapping("/addAlien")
-	public String addAlien(Alien alien)
-	{
-		repo.save(alien);
-		return "home.jsp";
-	}
+	/*
+	 * @RequestMapping("/addAlien") public String addAlien(Alien alien) {
+	 * repo.save(alien); return "home.jsp"; }
+	 */
 	
 //	@RequestMapping("/getAlien")
 //	public ModelAndView addAlien(@RequestParam int aId)
@@ -52,8 +55,16 @@ public class AlienController {
 	
 	//REST API
 	
-	@RequestMapping(path="/aliens", produces= {"application/xml"})
-	@ResponseBody
+	@PostMapping("/alien")
+	public Alien addAlien(Alien alien)
+	{
+		repo.save(alien);
+		return alien;
+	}
+	
+//	@RequestMapping(path="/aliens", produces= {"application/xml"})
+	@RequestMapping(path="/aliens")
+//	@ResponseBody - No need to use this for RestController
 	public List<Alien> getAliens()
 	{
 		return repo.findAll();
