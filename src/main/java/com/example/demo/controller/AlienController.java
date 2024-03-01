@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -61,6 +62,14 @@ public class AlienController {
 	{
 		repo.save(alien);
 		return alien;
+	}
+	
+	@DeleteMapping("/alien/{aId}")
+	public String deleteAlien(@PathVariable int aId)
+	{
+		Alien alien = repo.getOne(aId);
+		repo.delete(alien);
+		return "Deleted";
 	}
 	
 //	@RequestMapping(path="/aliens", produces= {"application/xml"})
