@@ -5,9 +5,15 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Alien {
+	public String getaTech() {
+		return aTech;
+	}
+	public void setaTech(String aTech) {
+		this.aTech = aTech;
+	}
 	@Override
 	public String toString() {
-		return "Alien [aId=" + aId + ", aName=" + aName + "]";
+		return "Alien [aId=" + aId + ", aName=" + aName + ", aTech=" + aTech + "]";
 	}
 	public int getaId() {
 		return aId;
@@ -24,4 +30,5 @@ public class Alien {
 	@Id
 	private int aId;
 	private String aName;
+	private String aTech;
 }
