@@ -56,7 +56,7 @@ public class AlienController {
 	
 	//REST API
 	
-	@PostMapping("/alien")
+	@PostMapping(path="/alien", consumes= {"application/json"})
 	public Alien addAlien(@RequestBody Alien alien)
 	{
 		repo.save(alien);
