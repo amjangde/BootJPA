@@ -52,7 +52,7 @@ public class AlienController {
 	
 	//REST API
 	
-	@RequestMapping("/aliens")
+	@RequestMapping(path="/aliens", produces= {"application/xml"})
 	@ResponseBody
 	public List<Alien> getAliens()
 	{
