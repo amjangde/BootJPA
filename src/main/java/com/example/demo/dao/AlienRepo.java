@@ -9,10 +9,10 @@ import com.example.demo.model.Alien;
 
 public interface AlienRepo extends CrudRepository<Alien, Integer> {
 
-	List<Alien> findByaTech(String tech);
-	
-	List<Alien> findByaIdGreaterThan(int id);
-	
-	@Query("from Alien where aTech=?1 order by aName desc")
-	List<Alien> findByaTechSorted(String tech);
+//	List<Alien> findByaTech(String tech);
+//	
+//	List<Alien> findByaIdGreaterThan(int id);
+//	
+//	@Query("from Alien where aTech=?1 order by aName desc")
+//	List<Alien> findByaTechSorted(String tech);
 }
